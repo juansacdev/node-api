@@ -1,30 +1,34 @@
+const { resolve } = require('path');
+const store = require('./store')
 
 
-
-function addMessage(user, message) {
-
+function addMessages(user, message) {
     return new Promise ((resolve, reject) => {
-
         if (!user || !message) {
-
             console.error('[Message Controller] No hay usuario o mensaje');
             return reject('Los datos son incorrectos');
-
         }
-
-        var fullMessage = {
+        const fullMessage = {
             user: user,
             message: message,
             date: new Date(),
         };
-
         resolve(fullMessage)
-        console.log(fullMessage);
-
+        store.add(fullMessage)
+        console.log(fullMessage)
     })
 }
 
-module.exports = {
 
-    addMessage,
+function getMessages() {
+    return new Promise ((resolve, reject) => {
+        resolve(store.list())
+    })
+}
+
+
+
+module.exports = {
+    addMessages,
+    getMessages
 };
