@@ -29,6 +29,16 @@ router.post('/', (req, resp) => {
 // http://localhost:3000/message
 
 
+//Parametros de la ruta (URL). Eso significa los ":id"
+router.patch('/:id', (req, resp) => {
+
+    controller.updateMessage(req.params.id, req.body.message)
+        .then( data => response.succes(req, resp, data, 200))
+        .catch(error => response.error(req, resp, 'Error interno', 500, e));
+
+})
+//http://localhost:3000/message/<#id>
+
 
 
 module.exports = router;
