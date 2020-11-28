@@ -16,6 +16,7 @@ router.get('/', (req, resp) => {
 
 })
 // http://localhost:3000/message
+// http://localhost:3000/message?user=<user_name>
 
 
 router.post('/', (req, resp) => {
@@ -34,11 +35,20 @@ router.patch('/:id', (req, resp) => {
 
     controller.updateMessage(req.params.id, req.body.message)
         .then( data => response.succes(req, resp, data, 200))
-        .catch(error => response.error(req, resp, 'Error interno', 500, e));
+        .catch(error => response.error(req, resp, 'Error interno', 500, error));
 
 })
 //http://localhost:3000/message/<#id>
 
+
+router.delete('/:id', (req, resp) => {
+
+    controller.deleteMessage(req.params.id)
+        .then(() => response.succes(req, resp, `Mensaje ${req.params.id} eliminado`, 200))
+        .catch(error => response.error(req, resp, 'Error interno', 500, error))
+
+})
+//http://localhost:3000/message/<#id>
 
 
 module.exports = router;
