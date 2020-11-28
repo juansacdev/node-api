@@ -9,7 +9,8 @@ app.use(bodyParser.json());
 
 router.get('/', (req, resp) => {
 
-    controller.getMessages()
+    const filterMessages = req.query.user || null;
+    controller.getMessages(filterMessages)
         .then(messageList => response.succes(req, resp, messageList, 200))
         .catch(e => response.error(req, resp, 'Unexpected Error', 500, e));
 
@@ -25,7 +26,6 @@ router.post('/', (req, resp) => {
         .catch(() => response.error(req, resp, 'Informacion invalida', 400, 'Error en el controlador'));
 
 });
-// http://localhost:3000/message?error=ok
 // http://localhost:3000/message
 
 

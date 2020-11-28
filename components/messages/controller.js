@@ -1,5 +1,3 @@
-const { rejects } = require('assert');
-const { resolve } = require('path');
 const store = require('./store')
 
 
@@ -21,12 +19,11 @@ function addMessages(user, message) {
 }
 
 
-function getMessages() {
+function getMessages(filterUser) {
     return new Promise ((resolve, reject) => {
-        resolve(store.list())
+        resolve(store.list(filterUser))
     })
 }
-
 
 
 function updateMessage(id, message){
