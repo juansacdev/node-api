@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', (req, resp) => {
     controller.getUsers()
-        .then(userList => response.succes(req, resp, userList, 200))
+        .then(users => response.succes(req, resp, users, 200))
         .catch(error => response.error(req, resp, 'Unexpected Error', 500, error))
 })
 //http://localhost:3000/user

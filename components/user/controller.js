@@ -2,9 +2,7 @@ const store = require('./store')
 
 
 function getUsers(){
-    return new Promise ((resolve, reject) => {
-        resolve(store.get())
-    })
+    return store.get();
 }
 
 
@@ -22,5 +20,5 @@ function addUser(name) {
 
 module.exports = {
     addUser,
-    getUsers
+    getUsers,
 }

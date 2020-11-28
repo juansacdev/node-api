@@ -1,9 +1,8 @@
-const { getUsers } = require('./controller');
 const Model = require('./model')
 
 
 function getUsers() {
-
+    return Model.find();
 }
 
 
