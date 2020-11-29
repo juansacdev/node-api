@@ -4,11 +4,18 @@ const Schema = mongoose.Schema
 
 //tabla en SQL, collecion en NoSQL
 const mySchema = new Schema({
-    user: {
-        type:String,
-        required: true,
+    chat: {
+        type: Schema.ObjectId,
+        ref: 'Chat',
     },
-    message: String,
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User',
+    },
+    message: {
+        type: String,
+        require: true,
+    },
     date: Date,
 });
 

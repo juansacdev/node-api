@@ -10,6 +10,7 @@ router.get('/', (req, resp) => {
         .catch(error => response.error(req, resp, 'Unexpected Error', 500, error))
 })
 //http://localhost:3000/user
+//Trae todos los usuarios
 
 router.post('/', (req, resp) => {
     controller.addUser(req.body.name)
@@ -17,6 +18,7 @@ router.post('/', (req, resp) => {
         .catch(error => response.error(req, resp, 'Internal Error', 500, error))
 })
 //http://localhost:3000/user
+//Agrega un usuario. Solo necesita que se le pase el nombre
 
 
 

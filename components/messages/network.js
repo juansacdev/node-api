@@ -9,25 +9,26 @@ app.use(bodyParser.json());
 
 router.get('/', (req, resp) => {
 
-    const filterMessages = req.query.user || null;
+    const filterMessages = req.query.chat || null;
     controller.getMessages(filterMessages)
         .then(messageList => response.succes(req, resp, messageList, 200))
-        .catch(e => response.error(req, resp, 'Unexpected Error', 500, e));
+        .catch(error => response.error(req, resp, 'Unexpected Error', 500, error));
 
 })
 // http://localhost:3000/message
-// http://localhost:3000/message?user=<user_name>
+// Trae todos los mensajes de todos los chats, si no se filtra
+// http://localhost:3000/message?chat=#id_chat
 
 
 router.post('/', (req, resp) => {
 
-    controller.addMessages(req.body.user, req.body.message)
-        // .then(()=> response.succes(req, resp, 'Creado correctamente', 201))
+    controller.addMessages(req.body.chat, req.body.message)
         .then(fullMessage => response.succes(req, resp, fullMessage, 201))
-        .catch(() => response.error(req, resp, 'Informacion invalida', 400, 'Error en el controlador'));
+        .catch(error => response.error(req, resp, 'Informacion invalida', 400, `Error en el controlador ${error}`));
 
 });
 // http://localhost:3000/message
+// el chat #id
 
 
 //Parametros de la ruta (URL). Eso significa los ":id"
