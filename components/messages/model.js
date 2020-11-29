@@ -17,6 +17,7 @@ const mySchema = new Schema({
         require: true,
     },
     date: Date,
+    file: String,
 });
 
 //collection name at mongo

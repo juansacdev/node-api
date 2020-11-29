@@ -20,4 +20,3 @@ router(app.use(bodyParser.json()))
 
 app.listen(PORT, () => console.log(`Aplicacion en http://localhost:${PORT}`))
 app.use('/app', express.static('public'))
-
