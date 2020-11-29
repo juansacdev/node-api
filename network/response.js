@@ -1,7 +1,23 @@
+const statusMessages = {
+    '200': 'Done',
+    '201': 'Created',
+    '400': 'Invalid format',
+    '500': 'Internal error'
+}
+
+
 exports.succes = function (req, resp, msg, status) {
-    resp.status(status || 200).send({
+    let statusCode = status
+    let statusMessage = msg
+    if(!status) {
+        status = 200
+    }
+    if(!msg) {
+        statusMessage = statusMessages[status]
+    }
+    resp.status(statusCode).send({
         error: '',
-        body:msg
+        body:statusMessage
     })
 }
 

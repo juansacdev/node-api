@@ -26,6 +26,7 @@ router.get('/', (req, resp) => {
 
 router.post('/', upload.single('file'),(req, resp) => {
 
+    console.log(req.file)
     controller.addMessages(req.body.chat, req.body.message, req.file)
         .then(fullMessage => response.succes(req, resp, fullMessage, 201))
         .catch(error => response.error(req, resp, 'Informacion invalida', 400, `Error en el controlador ${error}`));
