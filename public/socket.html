@@ -10,9 +10,9 @@
     <h1>Hola Soy un estatico</h1>
     <h2>Mira la consola bebeto</h2>
     <h3>La del navegador y la de node</h3>
-    <h3>a ver perro</h3>
+    <h4>Estamos utilizando protocolo websocket ¡Yuju!</h4>
     <script>
-        let socket = io.connect('http://localhost:8080', {
+        let socket = io.connect('http://localhost:3000', {
             forceNew: true,
         });
         socket.on('message', data => console.log(data))

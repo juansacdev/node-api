@@ -23,7 +23,7 @@ router.get('/', (req, resp) => {
 // Trae todos los mensajes de todos los chats, si no se filtra
 // http://localhost:3000/message?chat=#id_chat
 
-
+//middleware: ppunto por dodne pasa antes de entrar a la funcion
 router.post('/', upload.single('file'),(req, resp) => {
 
     console.log(req.file)
