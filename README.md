@@ -1,7 +1,7 @@
 # Node API
 An API with Node.js and Mongo BD Atlas
 
->This is a proyect for practice my knowledge about Node.
+>This is a proyect for practice my basic knowledge about Node.
 
 
 ### For run this code
